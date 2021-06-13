@@ -27,7 +27,7 @@ router.put("/:id", async (req, res) => {
   let update = null;
 
   if (req.body.method === "add") {
-    update = { $push: { pokemon_owned: req.body.pokemon } };
+    update = { $addToSet: { pokemon_owned: req.body.pokemon } };
   } else if (req.body.method === "remove") {
     update = { $pull: { pokemon_owned: req.body.pokemon } };
   } else {
